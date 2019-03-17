@@ -31,7 +31,7 @@ while (a < 5):
 print (tn)
 
 
-
+nu = 28
 
 def IsPrime(pc):
     if pc < 2:
@@ -44,13 +44,22 @@ def IsPrime(pc):
 def IsInt(n):
     return int(n) == float(n)
 
-def CountD(en):
-    lp = [2, 3]
-    ls = [i for i in range(1,en+1)]
-    lp.extend([i for i in range(5,en+1) if IsPrime(i)])
-    n = {j:[math.log(i,j) for i in ls if IsInt(math.log(i,j))] for j in lp}
-    print(n)
-    return (functools.reduce(lambda x, y: x*y, [y+1 for y in n.values() if y > 0]))
+def DivS(k, s):
+    if k%s == 0:
+        return True
+    return False
 
-print(CountD(28))
+    lp = [2, 3]
+    ls = list(range(1, en + 1))
+    lp.extend([i for i in range(5, en + 1) if IsPrime(i)]
+
+    ner = {j: sum([i for i in lp if Div(k, s)]) for j in lp}
+
+
+#def CountD(en):
+#    n = {j:sum(blabla) for j in lp}
+#    print(n)
+#    return (functools.reduce(lambda x, y: x*y, [y+1 for y in n.values() if y > 0]))
+
+print(wer)
 
