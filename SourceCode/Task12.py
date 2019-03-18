@@ -18,48 +18,45 @@
 #Каково первое треугольное число, у которого более пятисот делителей?
 
 import math
-import itertools
-import functools
 
-a = 0
-m = 1
-tn = [1]
-while (a < 5):
-    tn += [tn[m-1] + (m+1)]
-    m +=1
-    a +=1
-print (tn)
-
-
-nu = 28
-
-def IsPrime(pc):
-    if pc < 2:
-        return False
-    for number in itertools.islice(itertools.count(2), int(math.sqrt(pc) - 1)):
-        if not pc % number:
-            return False
-    return True
-
-def IsInt(n):
-    return int(n) == float(n)
-
-def DivS(k, s):
-    if k%s == 0:
+def IsSquare(k):
+    x=math.ceil((math.sqrt(k)))
+    if x*x==k:
         return True
-    return False
+    else:
+        return False
 
-    lp = [2, 3]
-    ls = list(range(1, en + 1))
-    lp.extend([i for i in range(5, en + 1) if IsPrime(i)]
+def MaxTr(l):
+    x=3
+    k=2
+    while (k<=l):
+        k=2
+        res=sum(list(range(1,x+1)))
+        for i in range(2,math.ceil(math.sqrt(res))):
+            if res%i==0:
+                k+=2
+        if IsSquare(res):
+                k-=1
+        x+=1
+    return res
 
-    ner = {j: sum([i for i in lp if Div(k, s)]) for j in lp}
+print(MaxTr(500))
 
 
-#def CountD(en):
-#    n = {j:sum(blabla) for j in lp}
-#    print(n)
-#    return (functools.reduce(lambda x, y: x*y, [y+1 for y in n.values() if y > 0]))
+def listDivisors(x):
+    divisors = []
+    for i in range(1,int(math.sqrt(x))+1):
+        if x%i == 0:
+            divisors.append(i)
+    if math.sqrt(x) % 1 == 0:
+        return (len(divisors)*2)-1
+    return len(divisors)*2
 
-print(wer)
+counter = 2
+ans = 1
+while listDivisors(ans) <= 500:
+    ans += counter
+    counter += 1
+
+print(ans)
 
