@@ -51,8 +51,11 @@ st = '75 \
 
 def SplitArr(a, s):
     ar=[]
+    k = 0
     while len(a) > s:
         ta = a[:s]
+        for i in range(15 - s):
+            ta.append(0)
         ar.append(ta)
         a = a[s:]
         s += 1
@@ -61,6 +64,14 @@ def SplitArr(a, s):
 
 l = list(map(int, st.split()))
 a = numpy.array(SplitArr(l, 1))
+s = 0
+for i in range(a.shape[0] - 2,-1,-1):
+    for j in range(a.shape[1] - (s + 1)):
+        if a[i + 1, j] + a[i, j] >= a[i + 1,j + 1] + a[i,j]:
+            a[i, j] = a[i + 1, j] + a[i, j]
+        else:
+            a[i, j] = a[i + 1, j + 1] + a[i, j]
+    s += 1
 
-print(l)
-print(a)
+print(a.max())
+
