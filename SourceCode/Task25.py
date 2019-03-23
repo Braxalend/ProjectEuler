@@ -42,13 +42,13 @@ print (FindNum(1000))
 print("--- %s seconds ---" % (time.time() - start_time))
 
 def Fibonachi(a,b,c):
-	while True:
-		a = a + b
-		b = a - b
-		if len(str(a)) == 1000:
-			return c
-			break
-		c += 1
+    while True:
+        a = a + b
+        b = a - b
+        if len(str(a)) == 1000:
+            return c
+            break
+        c += 1
 print(Fibonachi(0, 1, 1))
 
 print("--- %s seconds ---" % (time.time() - start_time))
