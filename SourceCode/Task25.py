@@ -22,6 +22,7 @@
 import time
 start_time = time.time()
 
+
 F = {1:1, 2:1, 3:2}
 def fib(n):
     if n in F:
